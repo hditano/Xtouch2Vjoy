@@ -1,4 +1,4 @@
-`# MIDI to vJoy Mapper
+# MIDI to vJoy Mapper
 
 This script maps MIDI Control Change (CC) and Note On/Off messages from a Behringer X-Touch Mini to vJoy virtual joystick inputs. It allows you to control vJoy axes and buttons using MIDI devices.
 
@@ -28,6 +28,7 @@ To install the required Python packages, use:
 
 ```bash
 pip install mido pyvjoy `
+```
 
 ### Additional Tools
 
