@@ -39,7 +39,9 @@ pip install mido pyvjoy `
 Installation
 ------------
 
-1.  Clone or download this repository to your local machine.
+1.  ```python
+    pip install Xtouch2Vjoy
+    ```
 2.  Ensure Python and required libraries are installed.
 3.  Verify your vJoy configuration supports the required axes and buttons.
 
