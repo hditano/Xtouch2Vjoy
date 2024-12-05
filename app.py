@@ -14,15 +14,18 @@ def list_midi_ports():
 
 def map_midi_to_vjoy(msg):
     """Map MIDI events to vJoy buttons"""
-    if msg.type == 'note_on':
-        if msg.velocity > 0:  # Only if the key is being pressed
-            # Map the note to a button on vJoy (e.g., note 60 -> button 1)
-            joystick.set_button(msg.note, 1)  # Set the button as pressed
-            print(f"Button {msg.note} pressed")
-    elif msg.type == 'note_off':
-        # When the key is released, the button is deactivated
-        joystick.set_button(msg.note, 0)  # Set the button as released
-        print(f"Button {msg.note} released")
+    try:
+        if msg.type == 'note_on':
+            if msg.velocity > 0:  # Only if the key is being pressed
+                # Map the note to a button on vJoy (e.g., note 60 -> button 1)
+                joystick.set_button(msg.note + 1, 1)  # Add 1 to button index
+                print(f"Button {msg.note + 1} pressed")
+        elif msg.type == 'note_off':
+            # When the key is released, the button is deactivated
+            joystick.set_button(msg.note + 1, 0)  # Add 1 to button index
+            print(f"Button {msg.note + 1} released")
+    except Exception as e:
+        print(f"Error handling MIDI message: {e}")
 
 def read_midi_input(port_name):
     """Read MIDI input and map it to vJoy"""
